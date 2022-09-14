@@ -5,6 +5,7 @@ import { isbnSearch } from './isbnapi';
 
 function App() {
   const [data, setData] = useState([]);
+  const [page, setPage] = useState('');
 
   const searchHandler = async () => {
     const params = {
@@ -31,7 +32,8 @@ function App() {
     };
 
     const { data } = await isbnSearch(params);
-    console.log(data.docs);
+    console.log(data.docs[0].PAGE);
+    setPage(data.docs[0].PAGE);
   };
 
   useEffect(() => {
@@ -40,11 +42,14 @@ function App() {
   }, []);
   return (
     <div className='App'>
+      <h1>kakao book search api</h1>
       <ul>
         {data.map((book) => (
           <li key={book.isbn}>{book.title}</li>
         ))}
       </ul>
+      <h1>page 정보</h1>
+      <h2>{page}</h2>
     </div>
   );
 }
