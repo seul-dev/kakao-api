@@ -21,10 +21,8 @@ function App() {
   };
 
   const searchISBN = async () => {
-    const API_KEY =
-      'afcfbefd5423867699f3fe3bedab3f696403f2e3a64c00a81b9d95cdaa9f929d';
     const params = {
-      cert_key: API_KEY,
+      cert_key: process.env.REACT_APP_NL_API_KEY,
       result_style: 'json',
       page_no: 1,
       page_size: 10,
