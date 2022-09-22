@@ -43,7 +43,10 @@ function App() {
       <h1>kakao book search api</h1>
       <ul>
         {data.map((book) => (
-          <li key={book.isbn}>{book.title}</li>
+          <li key={book.isbn}>
+            <img src={book.thumbnail} alt='book-cover' />
+            <p>{book.title}</p>
+          </li>
         ))}
       </ul>
       <h1>page 정보</h1>
